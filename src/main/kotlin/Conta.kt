@@ -1,9 +1,9 @@
-open class Conta(
+abstract class Conta(
     var titular: String,
-    val numeroConta: Int
+    val numero: Int
 ) {
     var saldo = 0.0
-        private set
+        protected set
 
     fun deposita(valor: Double) {
         if (valor > 0) {
@@ -11,13 +11,7 @@ open class Conta(
         }
     }
 
-    open fun saca(valor: Double) {
-        if(valor <= saldo){
-            this.saldo -= valor
-        } else {
-            println("Saque da conta do titular $titular não permitido - Sem saldo disponível")
-        }
-    }
+    abstract fun saca(valor: Double)
 
     fun transfere(valor: Double, destino: Conta): Boolean {
         if(saldo >= valor) {

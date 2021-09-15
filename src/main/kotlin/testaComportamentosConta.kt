@@ -1,43 +1,51 @@
 fun testaComportamentosConta() {
 
-    val contaMaria = Conta(titular = "Maria", numeroConta = 41334)
-    contaMaria.deposita(150.00)
+    val contaAlex = ContaCorrente(titular = "Alex", numero = 1000)
+    contaAlex.deposita(200.0)
 
-    val contaPedro = Conta(numeroConta = 41335, titular = "Pedro")
-    contaPedro.deposita(200.00)
+    val contaFran = ContaPoupanca(numero = 1001, titular = "Fran")
+    contaFran.deposita(300.0)
 
-    println("Titular: ${contaMaria.titular}")
-    println("Número da conta: ${contaMaria.numeroConta}")
-    println("Saldo: ${contaMaria.saldo} \n")
+    println(contaFran.titular)
+    println(contaFran.numero)
+    println(contaFran.saldo)
 
-    println("Titular: ${contaPedro.titular}")
-    println("Número da conta: ${contaPedro.numeroConta}")
-    println("Saldo: ${contaPedro.saldo}\n")
+    println(contaAlex.titular)
+    println(contaAlex.numero)
+    println(contaAlex.saldo)
 
-    contaMaria.deposita(50.0)
-    println("Saldo da conta do titular ${contaMaria.titular} após depósito: ${contaMaria.saldo}")
+    println("depositando na conta do Alex")
+    contaAlex.deposita(50.0)
+    println(contaAlex.saldo)
 
-    contaPedro.deposita(75.0)
-    println("Saldo da conta do titular ${contaPedro.titular} após depósito: ${contaPedro.saldo}")
+    println("depositando na conta da Fran")
+    contaFran.deposita(70.0)
+    println(contaFran.saldo)
 
-    contaMaria.saca(120.0)
-    println("Saldo da conta do titular ${contaMaria.titular} após saque: ${contaMaria.saldo}")
+    println("sacando na conta do Alex")
+    contaAlex.saca(250.0)
+    println(contaAlex.saldo)
 
-    contaPedro.saca(275.0)
-    println("Saldo da conta do titular ${contaPedro.titular} após saque: ${contaPedro.saldo}")
+    println("sacando na conta da Fran")
+    contaFran.saca(100.0)
+    println(contaFran.saldo)
 
-    contaMaria.saca(150.0)
-    contaPedro.saca(150.0)
+    println("saque em excesso na conta do Alex")
+    contaAlex.saca(100.0)
+    println(contaAlex.saldo)
 
-    println("Saldo da conta do titular ${contaMaria.titular} após saque: ${contaMaria.saldo}")
-    println("Saldo da conta do titular ${contaPedro.titular} após saque: ${contaPedro.saldo}")
+    println("saque em excesso na conta da Fran")
+    contaFran.saca(500.0)
+    println(contaFran.saldo)
 
-    if (contaMaria.transfere(30.0, contaPedro)) {
-        println("Transferência efetuada com sucesso")
+    println("Transferência da conta da Fran para o Alex")
+
+    if (contaFran.transfere(destino = contaAlex, valor = 300.0)) {
+        println("Transferência sucedida")
     } else {
-        println("Erro durante tentativa de transferência")
+        println("Falha na transferência")
     }
 
-    println("Saldo da conta do titular ${contaMaria.titular} após saque: ${contaMaria.saldo}")
-    println("Saldo da conta do titular ${contaPedro.titular} após saque: ${contaPedro.saldo}")
+    println(contaAlex.saldo)
+    println(contaFran.saldo)
 }

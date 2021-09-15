@@ -1,10 +1,12 @@
 class ContaCorrente(
     titular: String,
-    numeroConta: Int
-):Conta(titular = titular, numeroConta = numeroConta) {
+    numero: Int
+):Conta(titular = titular, numero = numero) {
 
     override fun saca(valor: Double) {
-        val valorComTaxa = valor + 0.10
-        super.saca(valorComTaxa)
+        val valorComTaxa = valor + 0.1
+        if(valorComTaxa <= saldo){
+            this.saldo -= valorComTaxa
+        }
     }
 }

@@ -6,7 +6,7 @@ fun testaCopiasEReferencias() {
     println(valorX)
     println(valorY)
 
-    val contaSilvio = Conta(titular = "Silvio", numeroConta =  52311)
+    val contaSilvio = ContaCorrente(titular = "Silvio", numero =  52311)
     val contaMarta = contaSilvio
     contaMarta.titular = "Marta"
 

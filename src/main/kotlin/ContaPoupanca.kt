@@ -1,6 +1,11 @@
 class ContaPoupanca(
     titular: String,
-    numeroConta: Int
-) : Conta(titular = titular, numeroConta = numeroConta) {
+    numero: Int
+) : Conta(titular = titular, numero = numero) {
 
+    override fun saca(valor: Double) {
+        if(valor <= saldo){
+            this.saldo -= valor
+        }
+    }
 }
