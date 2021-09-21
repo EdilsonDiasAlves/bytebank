@@ -1,5 +1,6 @@
 package br.com.alura.bytebank.teste
 
+import br.com.alura.bytebank.modelo.Cliente
 import br.com.alura.bytebank.modelo.ContaCorrente
 
 fun testaCopiasEReferencias() {
@@ -10,9 +11,10 @@ fun testaCopiasEReferencias() {
     println(valorX)
     println(valorY)
 
-    val contaSilvio = ContaCorrente(titular = "Silvio", numero =  52311)
+    val silvio = Cliente(nome = "Silvio", cpf = "278.982.920-90", senha = 1155)
+    val contaSilvio = ContaCorrente(titular = silvio, numero =  52311)
     val contaMarta = contaSilvio
-    contaMarta.titular = "Marta"
+    contaMarta.titular.nome = "Marta"
 
     println("titular conta silvio: ${contaSilvio.titular}")
     println("titular conta marta: ${contaMarta.titular}")
