@@ -1,3 +1,7 @@
+package br.com.alura.bytebank.teste
+
+import br.com.alura.bytebank.modelo.ContaCorrente
+
 fun testaCopiasEReferencias() {
     var valorX = 10
     var valorY = valorX
