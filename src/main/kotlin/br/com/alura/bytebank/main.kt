@@ -1,32 +1,10 @@
 import br.com.alura.bytebank.modelo.Funcionario
-import java.lang.NumberFormatException
+import br.com.alura.bytebank.teste.testaComportamentosConta
 
 fun main() {
     println("início main")
-
-    val entrada = "1.0"
-
-    val valorConvertido: Double? = try {
-        entrada.toDouble()
-    } catch (e: NumberFormatException) {
-        println("Problema na conversão")
-        e.printStackTrace()
-        null
-    }
-
-    val valorComTaxa: Double? = if (valorConvertido != null) {
-        valorConvertido + 0.1
-    } else {
-        null
-    }
-
-    if (valorComTaxa != null) {
-        println("valor recebido: $valorComTaxa")
-    } else {
-        println("valor inválido")
-    }
-
-    funcao1()
+    testaComportamentosConta()
+//    funcao1()
     println("fim main")
 }
 
@@ -47,7 +25,7 @@ fun funcao2() {
         println(i)
 
         val falsoFuncionario = Any()
-        falsoFuncionario as Funcionario
+        throw NumberFormatException()
     }
     println("fim funcao2")
 }
