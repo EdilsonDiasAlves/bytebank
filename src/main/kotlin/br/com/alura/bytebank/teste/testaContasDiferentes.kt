@@ -23,7 +23,7 @@ fun testaContasDiferentes() {
 
     val contaCorrente = ContaCorrente(
         titular = mauro,
-        numero = 3075,
+        numero = 3075
     )
 
     println("titular corrente")
@@ -55,12 +55,12 @@ fun testaContasDiferentes() {
     println("saldo após saque corrente: ${contaCorrente.saldo}")
     println("saldo após saque poupança: ${contaPoupanca.saldo}")
 
-    contaCorrente.transfere(100.00, contaPoupanca)
+    contaCorrente.transfere(100.00, contaPoupanca, 2266)
 
     println("saldo corrente após tranferir para poupança: ${contaCorrente.saldo}")
     println("saldo poupança após receber transferência: ${contaPoupanca.saldo}")
 
-    contaPoupanca.transfere(100.00, contaCorrente)
+    contaPoupanca.transfere(100.00, contaCorrente, 3377)
 
     println("saldo poupança após tranferir para corrente: ${contaPoupanca.saldo}")
     println("saldo corrente após receber poupança: ${contaCorrente.saldo}")
