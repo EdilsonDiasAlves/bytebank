@@ -12,9 +12,8 @@ class Endereco(
     override fun toString(): String {
         // raw string
         return """
-             Endereco: $logradouro, numero: $numero
-             bairro: $bairro 
-             cidade: $cidade - $estado
+             Endereco: $logradouro, numero: $numero bairro:  $bairro cidade:  $cidade  -  $estado
+             
         """.trimIndent()
     }
 

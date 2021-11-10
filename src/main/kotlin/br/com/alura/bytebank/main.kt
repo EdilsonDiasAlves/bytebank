@@ -1,17 +1,19 @@
 package br.com.alura.bytebank
 
-import br.com.alura.bytebank.teste.calculaBonificacaoAnonima
-import br.com.alura.bytebank.teste.calculaBonificacaoLambda
-import br.com.alura.bytebank.teste.somaAnonima
-import br.com.alura.bytebank.teste.somaLambda
+import br.com.alura.bytebank.modelo.Endereco
 
 fun main() {
-    println(somaLambda(10, 15))
-    println(somaAnonima(10, 10))
+    val endereco = Endereco(logradouro="Rua dos Lírios", numero=76, cidade="São Paulo")
 
-    println(calculaBonificacaoLambda(1100.0))
-    println(calculaBonificacaoAnonima(1000.0))
+    endereco.let { endereco ->
+        "logradouro: ${endereco.logradouro}, cidade: ${endereco.cidade}".toUpperCase()
+    }   .let (::println)
+
+    val enderecos = listOf(
+        Endereco(logradouro = "Rua das Rosas", complemento = "Viela A"),
+        Endereco(),
+        Endereco(logradouro = "Rua das Candeiras", complemento="Viela B")
+    )
+        .filter { endereco -> endereco.complemento.isNotEmpty() }
+        .let(::println)
 }
-
-
-
