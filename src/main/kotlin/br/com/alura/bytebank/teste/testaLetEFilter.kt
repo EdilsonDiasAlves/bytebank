@@ -5,7 +5,7 @@ import br.com.alura.bytebank.modelo.Endereco
 fun testaLetEFilter() {
     val endereco = Endereco(logradouro = "Rua dos Lírios", numero = 76, cidade = "São Paulo")
 
-    endereco.apply {
+    endereco.run {
         "logradouro: $logradouro, cidade: $cidade".toUpperCase()
     }.let(::println)
 
